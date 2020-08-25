@@ -1,0 +1,74 @@
+<div class="container mt-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-6">
+      <h1 class="display-4 text-center">Log In<hr></h1>
+    </div>
+  </div>
+
+  <!-- <div class="row d-flex justify-content-center">
+    <div class="col-lg-4 col-md-6 col-12 d-flex justify-content-center">
+        <a class="btn btn-block btn-lg btn-primary" href="http://localhost:3000/api/google">
+          <div class="icon-wrap d-flex justify-content-center">
+              <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+          </div>
+          <div class="font-weight-bold">Log in with Google</div>
+        </a>
+  </div>
+  </div>
+
+
+
+    <div class="row mt-4 d-flex justify-content-center">
+      <div class="col-lg-6">
+          <p class="display-4 text-center text-muted" style="font-size: 30px;">Or</p>
+      </div>
+    </div> -->
+
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-6" >
+          <div class="alert alert-danger" *ngIf = "alert.error==true">
+            {{alert.message}} 
+          </div>
+
+            <form #form='ngForm' (ngSubmit) = 'submitForm(form)' >
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input required email #emailvar = "ngModel"
+                  [class.is-invalid] = "emailvar.invalid && (emailvar.touched || emailvar.dirty)"
+                  type="email" name="email" ngModel class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div class="invalid-feedback" >
+                    <div class=""
+                    *ngIf = "emailvar.touched && emailvar.errors?.required">Email required</div>
+
+                    <div class=""
+                    *ngIf = "emailvar.dirty && emailvar.errors?.email">
+                    Please provide proper email address
+                  </div>
+                  </div>
+
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  
+                </div>
+
+
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input required #passvar = "ngModel"
+                  [class.is-invalid] = "passvar.invalid && (passvar.touched || passvar.dirty)"
+                  type="password" name="password" ngModel class="form-control" id="exampleInputPassword1">
+                  
+                  <div class="invalid-feedback" >
+                    <div class="" *ngIf = "passvar.touched && passvar.errors?.required">
+                      Password required
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" [disabled] = "form.invalid" class="btn btn-primary">Submit</button><br><br>
+                <small id="emailHelp" class="form-text text-muted h6" style="font-size: 17px;">
+                  Don't have an account ? <a routerLink = "/signup">Sign Up</a>
+              </small>
+            </form>
+        </div>
+    </div>
+
+</div>

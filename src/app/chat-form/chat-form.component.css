@@ -1,0 +1,9 @@
+.clip{
+    font-size: 2rem;
+    padding: 3px 0px 0px 0px;
+}
+
+.chatinput{
+    background: rgb(252, 251, 250);
+    border-radius: 20px;
+}

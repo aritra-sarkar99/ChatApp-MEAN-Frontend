@@ -1,0 +1,23 @@
+
+.icon-wrap {
+  position: absolute;
+  margin-top: -7px;
+  margin-left: -15px;
+  width: 42px;
+  height: 43px;
+  border-radius: 2px;
+  background-color: white;
+}
+
+.icon {
+  position: absolute;
+  margin-top: 9px;
+  /* margin-left: -5px; */
+  width: 25px;
+  height: 25px;
+}
+ .btn:hover {
+    box-shadow: 0 0 6px #4285f4;
+  }
+
+

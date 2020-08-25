@@ -1,0 +1,13 @@
+<div class="container-fluid chatbox">
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-4 col-md-4 pr-0" >
+            <app-user-list (userClickEvent) = "receiveUser($event)" (ClickValue)="receiveClick($event)"></app-user-list>
+        </div>
+        
+        <div class="col-lg-8 col-md-8 pl-0" >
+            <app-feed [clickedUser] = "clickeduser"></app-feed>
+        </div>
+        
+        <!-- <app-message></app-message> -->
+    </div>
+</div>

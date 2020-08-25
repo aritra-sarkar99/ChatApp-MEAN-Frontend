@@ -1,0 +1,16 @@
+<div class="card user-list">
+    <div class="card-header d-inline-flex justify-content-between">
+        <h3>User List</h3>
+        <button class="btn btn-info" (click) = "panelExpanded = !panelExpanded">
+            See Users
+        </button>
+    </div>
+
+    <ul class="list-group userlist" [hidden] = "panelExpanded">
+        <div *ngFor = "let user of users ">
+            <app-user-item [user] = "user" (userClickEvent)="receiveUser($event)" (ClickValue)="receiveClick($event)"></app-user-item>
+        </div>
+    </ul>
+    <button class="btn btn-block btn-danger" (click)="logout()" >Sign Out</button>
+</div>
+

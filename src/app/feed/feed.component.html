@@ -1,0 +1,57 @@
+
+<div class="card">
+    <div class="card-header">
+        <div class="row ">
+            <div class="col-md-1">
+                <img src="https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-default-avatar-profile-icon-social-media-user-vector-portrait-176194876.jpg" alt="">
+            </div>
+            <div class="col-md-11 name" *ngIf = "clickedUser.name">
+                <p class="font-weight-normal">{{clickedUser.name}}</p>
+            </div>
+            <div class="col-md-11 name" *ngIf = "!clickedUser.name">
+                <p class="font-weight-normal">No User Selected</p>
+            </div>
+        </div>
+    </div>
+    <div class="card-body" id="chat-body" style="height: 500px; " *ngIf = "clickedUser.name">
+        <!-- Here the messages go -->
+            <div *ngIf = "clickedUser.userId==personA || clickedUser.userId==personB">
+            <div *ngIf="fetchedmsg">
+                <div *ngFor = "let message of fetchedmsg.chats">
+                    <div class="row" *ngIf = "message.sender!=senderId" >
+                        <div class="col-6 col-sm-7 col-md-7" id="receive-container">
+                            <p class="receive"> {{message.message}} </p>
+                        </div>
+                    </div>
+            
+                    <div class="row justify-content-end chatrow" *ngIf = "message.sender==senderId" >
+                        <div class="col-6 col-sm-7 col-md-7 chatcol" >
+                            <p class="sent float-right">{{message.message}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+                <div *ngIf = "currentmsgs.length > 0">
+                    <div *ngFor = "let message of currentmsgs">
+                        <div class="row" *ngIf = "message.receiver==senderId" >
+                            <div class="col-6 col-sm-7 col-md-7" id="receive-container">
+                                <p class="receive"> {{message.message}} </p>
+                            </div>
+                        </div>
+                
+                        <div class="row justify-content-end chatrow" *ngIf = "message.sender==senderId && message.receiver==clickedUser.userId" >
+                            <div class="col-6 col-sm-7 col-md-7 chatcol" >
+                                <p class="sent float-right">{{message.message}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="card-footer" style="background: rgb(209, 204, 204);" *ngIf = "clickedUser.name">
+        <app-chat-form [clickeduser] = "clickedUser" (SendEvent) = "sendMsg($event)" ></app-chat-form>
+    </div>
+</div>
+

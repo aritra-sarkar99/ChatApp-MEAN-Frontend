@@ -1,0 +1,16 @@
+img{
+    height: 50px;
+    width: 50px;
+}
+
+.name{
+    font-weight: 400px;
+    font-size: 20px;
+    color: #000;
+}
+
+.under-name{
+    font-size: 15px;
+    line-height: 15px;
+    max-height: 15px;
+}

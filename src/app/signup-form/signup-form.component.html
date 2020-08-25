@@ -1,0 +1,95 @@
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-6">
+        <h1 class="display-4 text-center">Sign Up<hr></h1>
+      </div>
+    </div>
+
+      <div class="row d-flex justify-content-center">
+          <div class="col-lg-6" >
+              <!-- ALERT SECTION -->
+              <div class="alert alert-success" *ngIf = "alert.message!='' && alert.error==false">
+                {{alert.message}}  <a routerLink = "/login">Log In</a>
+              </div>
+              <div class="alert alert-danger" *ngIf = "alert.error==true">
+                {{alert.message}} 
+              </div>
+              
+              <form #signupform = "ngForm"  (ngSubmit) = "SignUp(signupform)">
+                <!-- ***************************************** -->
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Name</label>
+                  <input
+                  required #namevar = "ngModel" 
+                  [class.is-invalid] = "namevar.invalid && (namevar.touched || namevar.dirty)"
+                  ngModel type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div class="invalid-feedback" >
+                    <div class=""
+                    *ngIf = "namevar.touched && namevar.errors?.required">Name required</div>
+                  </div>
+
+                  </div>
+              
+
+
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input required email #emailvar = "ngModel"
+                    type="email" name="email" ngModel
+                    [class.is-invalid] = "emailvar.invalid && (emailvar.touched || emailvar.dirty)"
+                    class="form-control " id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div class="invalid-feedback" >
+                      <div class=""
+                      *ngIf = "emailvar.touched && emailvar.errors?.required">Email required</div>
+
+                      <div class=""
+                      *ngIf = "emailvar.dirty && emailvar.errors?.email">
+                      Please provide proper email address
+                    </div>
+
+                    </div>
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input required #passvar = "ngModel"
+                    [class.is-invalid] = "passvar.invalid && (passvar.touched || passvar.dirty)"
+                    type="password" ngModel minlength="6"
+                    name="password"  class="form-control" id="exampleInputPassword1">
+                    <div class="invalid-feedback" >
+                      <div class="" *ngIf = "passvar.touched && passvar.errors?.required">
+                        Password required
+                      </div>
+                      
+                      <div class="" *ngIf = "passvar.errors?.minlength">
+                      Minimum password length should be above 6 characters</div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label >Confirm Password</label>
+                    <input required #confpassvar = "ngModel"
+                    [class.is-invalid] = "confpassvar.invalid && (confpassvar.touched || confpassvar.dirty)"
+                    type="password" ngModel ConfirmValidator="password"
+                    name="confpass"  class="form-control" id="exampleInputPassword1">
+                    <div class="invalid-feedback" >
+                      <div class="" *ngIf = "confpassvar.touched && confpassvar.errors?.required">
+                        Confirm Password required
+                      </div>
+                      <div class="" *ngIf = "confpassvar.touched && confpassvar.errors?.notEqual && !confpassvar.errors?.required">
+                        Password does'nt match
+                      </div>
+                    </div>
+                  </div>
+
+                  <button type="submit" [disabled] = "signupform.invalid" class="btn btn-primary">Submit</button><br><br>
+              </form>
+              <small id="emailHelp" class="form-text text-muted h6" style="font-size: 17px;">
+                Already have an account ? <a routerLink = "/login">Log In</a>
+            </small>
+          </div>
+      </div>
+  
+  </div>
+  

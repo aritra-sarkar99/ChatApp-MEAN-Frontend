@@ -1,0 +1,35 @@
+img{
+    height: 41px;
+    width: 41px;
+}
+.receive{
+    background: rgb(40, 172, 69);
+    color: beige;
+    padding: 10px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    word-break: break-all;
+}
+
+.sent{
+    background: darkslategray;
+    color: beige;
+    padding: 10px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    word-break: break-all;
+}
+
+.card-body{
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.name{
+    line-height: 25px;
+    font-size: 25px;
+}
+.name p{
+    font-weight: 400px;
+    font-size: 20px;
+    color: #000;
+}
