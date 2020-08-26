@@ -1,9 +1,11 @@
 <div class="card user-list">
     <div class="card-header d-inline-flex justify-content-between">
         <h3>User List</h3>
-        <button class="btn btn-info" (click) = "panelExpanded = !panelExpanded">
+        <!-- <button class="btn btn-info" (click) = "panelExpanded = !panelExpanded">
             See Users
-        </button>
+        </button> -->
+        <i class="fas fa-bars fa-2x menuicon" *ngIf = "panelExpanded" (click) = "panelExpanded = !panelExpanded"></i>
+        <i class="fas fa-times fa-2x menuicon" *ngIf = "!panelExpanded" (click) = "panelExpanded = !panelExpanded"></i>
     </div>
 
     <ul class="list-group userlist" [hidden] = "panelExpanded">

@@ -4,6 +4,7 @@ import { Observable, Subject, BehaviorSubject } from 'rxjs';
 
 import {User} from '../models/User'
 import { Router } from '@angular/router';
+import {environment} from '../../environments/environment'
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,7 +17,7 @@ const httpOptions = {
 })
 export class AuthService {
 
-  url:string = 'http://localhost:3000/api/'
+  url:string = environment.apiBaseUrl
   private isAuthSub = new Subject<boolean>()
   // isAuth = this.isAuthSub.asObservable()
 
